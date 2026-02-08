@@ -19,7 +19,25 @@
             </div>
             {{/is}}
 
-            <h1 class="single-title">{{title}}</h1>
+            <div class="single-title-nav">
+                {{#is "post"}}
+                {{#prev_post}}
+                <a class="title-nav title-nav-previous" href="{{url}}" aria-label="Previous post">
+                    {{> "icons/arrow-left"}}
+                </a>
+                {{/prev_post}}
+                {{/is}}
+
+                <h1 class="single-title">{{title}}</h1>
+
+                {{#is "post"}}
+                {{#next_post}}
+                <a class="title-nav title-nav-next" href="{{url}}" aria-label="Next post">
+                    {{> "icons/arrow-right"}}
+                </a>
+                {{/next_post}}
+                {{/is}}
+            </div>
 
             {{#if custom_excerpt}}
                 <div class="single-excerpt">
@@ -54,21 +72,10 @@
     </div>
 
     {{#is "post"}}
+    {{#if @custom.show_author}}
     <div class="gh-canvas">
     <footer class="single-footer">
-
-        <div class="single-footer-left">
-        {{#prev_post}}
-            <div class="navigation navigation-previous">
-                <a class="navigation-link" href="{{url}}" aria-label="Previous post">
-                    {{> "icons/arrow-left"}}
-                </a>
-            </div>
-        {{/prev_post}}
-        </div>
-
         <div class="single-footer-middle">
-        {{#if @custom.show_author}}
             <div class="single-footer-top">
                 <h3 class="single-footer-title">Published by:</h3>
                 <div class="author-list">
@@ -81,21 +88,10 @@
                     {{/foreach}}
                 </div>
             </div>
-        {{/if}}
         </div>
-
-        <div class="single-footer-right">
-        {{#next_post}}
-            <div class="navigation navigation-next">
-                <a class="navigation-link" href="{{url}}" aria-label="Next post">
-                    {{> "icons/arrow-right"}}
-                </a>
-            </div>
-        {{/next_post}}
-        </div>
-
     </footer>
     </div>
+    {{/if}}
     {{/is}}
 
 </article>
