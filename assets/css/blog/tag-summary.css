@@ -32,11 +32,11 @@
 }
 
 .tag-summary-nav-important a {
-    color: var(--orange-color);
+    color: var(--brand-color);
 }
 
 .tag-summary-nav-important .tag-summary-nav-count {
-    color: var(--orange-color);
+    color: var(--brand-color);
 }
 
 .tag-summary-nav-important a:hover {
