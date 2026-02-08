@@ -13,11 +13,9 @@
 
     <div class="feed-right">
         {{> "icons/star"}}
-        <div class="feed-tags">
-            {{#foreach tags limit="3"}}
-                <a href="{{url}}" class="feed-tag">{{name}}</a>
-            {{/foreach}}
-        </div>
+        {{#primary_tag}}
+            <a href="{{url}}" class="feed-tag">{{name}}</a>
+        {{/primary_tag}}
     </div>
 
     {{> "icons/chevron-right"}}

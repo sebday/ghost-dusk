@@ -14,10 +14,20 @@
         </div>
         <div class="changelog-cards">
             {{#foreach publicTags}}
-            <a class="changelog-card" href="{{url}}" data-tag="{{slug}}">
-                <span class="changelog-card-count">-</span>
-                <span class="changelog-card-name">{{name}}</span>
-            </a>
+                {{#has slug="important"}}
+                <a class="changelog-card changelog-card-important" href="{{url}}" data-tag="{{slug}}">
+                    <span class="changelog-card-count">-</span>
+                    <span class="changelog-card-name">{{name}}</span>
+                </a>
+                {{/has}}
+            {{/foreach}}
+            {{#foreach publicTags}}
+                {{#has slug="important"}}{{else}}
+                <a class="changelog-card" href="{{url}}" data-tag="{{slug}}">
+                    <span class="changelog-card-count">-</span>
+                    <span class="changelog-card-name">{{name}}</span>
+                </a>
+                {{/has}}
             {{/foreach}}
         </div>
         {{#get "posts" limit="all" include="tags" as |allPosts|}}

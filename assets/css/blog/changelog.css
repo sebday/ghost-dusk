@@ -79,6 +79,19 @@
     border-color: var(--brand-color);
 }
 
+.changelog-card-important {
+    border-color: var(--orange-color);
+}
+
+.changelog-card-important .changelog-card-count {
+    color: var(--orange-color);
+}
+
+.changelog-card-important:hover {
+    border-color: var(--orange-color);
+    opacity: 0.8;
+}
+
 .changelog-card.is-zero {
     opacity: 0.3;
 }
