@@ -1,0 +1,108 @@
+.changelog-wrapper {
+    margin-top: var(--header-spacing);
+}
+
+.changelog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--light-gray-color);
+}
+
+.changelog-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    margin: 0;
+}
+
+.changelog-period {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.changelog-period-btn {
+    padding: 0.3rem 1rem;
+    border: 1px solid var(--light-gray-color);
+    border-radius: 2rem;
+    background: none;
+    color: var(--secondary-text-color);
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.changelog-period-btn:hover {
+    border-color: var(--brand-color);
+    color: var(--brand-color);
+}
+
+.changelog-period-btn.active {
+    background-color: var(--brand-color);
+    border-color: var(--brand-color);
+    color: var(--white-color);
+}
+
+.changelog-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.changelog-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+    padding: 1.5rem 2rem;
+    border: 1px solid var(--light-gray-color);
+    border-radius: 0.8rem;
+    transition: opacity 0.3s ease;
+}
+
+.changelog-card.is-zero {
+    opacity: 0.3;
+}
+
+.changelog-card-count {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--brand-color);
+}
+
+.changelog-card-name {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary-text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+    .changelog-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .changelog-cards {
+        gap: 1rem;
+    }
+
+    .changelog-card {
+        min-width: 80px;
+        padding: 1.2rem 1.5rem;
+    }
+
+    .changelog-card-count {
+        font-size: 2.2rem;
+    }
+}

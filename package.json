@@ -74,6 +74,11 @@
             "white_logo_for_dark_mode": {
                 "type": "image"
             },
+            "show_changelog": {
+                "type": "boolean",
+                "default": true,
+                "group": "homepage"
+            },
             "show_featured_posts": {
                 "type": "boolean",
                 "default": true,

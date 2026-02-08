@@ -3,6 +3,7 @@ $(function () {
     featured();
     pagination(false);
     themeToggle();
+    changelog();
 });
 
 function themeToggle() {
@@ -43,6 +44,57 @@ function themeToggle() {
             updateToggles();
         }
     });
+}
+
+function changelog() {
+    'use strict';
+    var wrapper = document.querySelector('.changelog-wrapper');
+    if (!wrapper) return;
+
+    var dataEl = wrapper.querySelector('.changelog-data');
+    if (!dataEl) return;
+
+    var posts;
+    try {
+        posts = JSON.parse(dataEl.textContent);
+    } catch (e) {
+        return;
+    }
+
+    var cards = wrapper.querySelectorAll('.changelog-card');
+    var buttons = wrapper.querySelectorAll('.changelog-period-btn');
+
+    function update(days) {
+        var cutoff = new Date();
+        cutoff.setDate(cutoff.getDate() - days);
+        var cutoffStr = cutoff.toISOString().split('T')[0];
+
+        var counts = {};
+        posts.forEach(function (post) {
+            if (post.d >= cutoffStr) {
+                post.t.forEach(function (tag) {
+                    counts[tag] = (counts[tag] || 0) + 1;
+                });
+            }
+        });
+
+        cards.forEach(function (card) {
+            var tag = card.getAttribute('data-tag');
+            var count = counts[tag] || 0;
+            card.querySelector('.changelog-card-count').textContent = count;
+            card.classList.toggle('is-zero', count === 0);
+        });
+    }
+
+    buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            buttons.forEach(function (b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            update(parseInt(btn.getAttribute('data-days'), 10));
+        });
+    });
+
+    update(90);
 }
 
 function featured() {

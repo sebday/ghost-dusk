@@ -95,6 +95,9 @@
     </header>
 
     {{#is "home"}}
+        {{#if @custom.show_changelog}}
+            {{> "changelog"}}
+        {{/if}}
         {{#if @custom.show_featured_posts}}
             {{> "featured-posts"}}
         {{/if}}
