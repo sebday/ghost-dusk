@@ -109,3 +109,26 @@
     transition: transform 0.2s var(--animation-base);
     transform: translateX(2rem);
 }
+
+.feed-important {
+    border: 1px solid var(--orange-color)!important;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin: 0 0 1rem 0;
+}
+
+.feed-important + .feed {
+    border-top: 0;
+}
+
+.feed-important .feed-calendar {
+    color: var(--orange-color);
+}
+
+.feed-important .feed-tag {
+    color: var(--orange-color);
+}
+
+.feed-important .feed-tag:hover {
+    opacity: 0.8;
+}
