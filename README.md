@@ -1,15 +1,28 @@
-# Dawn
+# Dusk
 
-# Development
+Custom Ghost theme based on Dawn with a dark-first approach.
 
-Styles are compiled using Gulp/PostCSS to polyfill future CSS spec. You'll need [Node](https://nodejs.org/), [Yarn](https://yarnpkg.com/) and [Gulp](https://gulpjs.com) installed globally. After that, from the theme's root directory:
+## Custom Features
+
+- **Custom background colors** - Set your own site background color via theme settings
+- **White logo for dark mode** - Separate logo option that displays when dark mode is active  
+- **Changelog section** - Optional changelog/updates section on homepage (toggleable)
+- **Dark mode enhancements** - Improved dark mode icons and styling
+
+## Development
+
+Styles are compiled using Gulp/PostCSS. We use mise to manage Node versions and npm for package management. From the theme's root directory:
 
 ```bash
-# Install
-yarn
+# Install dependencies
+npm install
 
 # Run build & watch for changes
-yarn dev
+npm run dev
 ```
 
 Now you can edit `/assets/css/` files, which will be compiled to `/assets/built/` automatically.
+
+## License
+
+MIT

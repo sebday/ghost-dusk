@@ -1,6 +1,6 @@
 {
-    "name": "dawn",
-    "description": "A Ghost theme",
+    "name": "dusk",
+    "description": "A Ghost theme with dark mode focus and custom features",
     "version": "1.2",
     "private": true,
     "engines": {

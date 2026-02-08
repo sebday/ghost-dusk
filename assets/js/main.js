@@ -63,15 +63,40 @@ function changelog() {
 
     var cards = wrapper.querySelectorAll('.changelog-card');
     var buttons = wrapper.querySelectorAll('.changelog-period-btn');
+    var rangeEl = wrapper.querySelector('.changelog-range');
+    var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+
+    function formatDate(d) {
+        var dd = d.getDate();
+        return months[d.getMonth()] + ' ' + (dd < 10 ? '0' : '') + dd;
+    }
 
     function update(days) {
-        var cutoff = new Date();
-        cutoff.setDate(cutoff.getDate() - days);
-        var cutoffStr = cutoff.toISOString().split('T')[0];
+        var now = new Date();
+        var isAll = days === 'all';
+        var cutoffStr = '';
+
+        if (!isAll) {
+            var cutoff = new Date();
+            cutoff.setDate(cutoff.getDate() - days);
+            cutoffStr = cutoff.toISOString().split('T')[0];
+        }
+
+        if (rangeEl) {
+            if (isAll && posts.length) {
+                var dates = posts.map(function (p) { return p.d; }).sort();
+                var earliest = new Date(dates[0]);
+                rangeEl.textContent = formatDate(earliest) + ' – ' + formatDate(now);
+            } else if (!isAll) {
+                rangeEl.textContent = formatDate(cutoff) + ' – ' + formatDate(now);
+            } else {
+                rangeEl.textContent = '';
+            }
+        }
 
         var counts = {};
         posts.forEach(function (post) {
-            if (post.d >= cutoffStr) {
+            if (isAll || post.d >= cutoffStr) {
                 post.t.forEach(function (tag) {
                     counts[tag] = (counts[tag] || 0) + 1;
                 });
@@ -90,11 +115,12 @@ function changelog() {
         btn.addEventListener('click', function () {
             buttons.forEach(function (b) { b.classList.remove('active'); });
             btn.classList.add('active');
-            update(parseInt(btn.getAttribute('data-days'), 10));
+            var val = btn.getAttribute('data-days');
+            update(val === 'all' ? 'all' : parseInt(val, 10));
         });
     });
 
-    update(90);
+    update('all');
 }
 
 function featured() {

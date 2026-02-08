@@ -1,11 +1,11 @@
 .changelog-wrapper {
-    margin-top: var(--header-spacing);
+    margin-top: 60px;
 }
 
 .changelog-header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: baseline;
+    gap: 1.5rem;
     padding-bottom: 1rem;
     margin-bottom: 2rem;
     border-bottom: 1px solid var(--light-gray-color);
@@ -21,17 +21,26 @@
 
 .changelog-period {
     display: flex;
+    align-items: baseline;
     gap: 0.5rem;
 }
 
+.changelog-range {
+    margin-left: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--secondary-text-color);
+    letter-spacing: 0.02em;
+}
+
 .changelog-period-btn {
-    padding: 0.3rem 1rem;
+    padding: 0.2rem 0.8rem;
     border: 1px solid var(--light-gray-color);
     border-radius: 2rem;
     background: none;
     color: var(--secondary-text-color);
     font-family: inherit;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -51,18 +60,23 @@
 .changelog-cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .changelog-card {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 100px;
-    padding: 1.5rem 2rem;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.6rem 1.2rem;
     border: 1px solid var(--light-gray-color);
-    border-radius: 0.8rem;
-    transition: opacity 0.3s ease;
+    border-radius: 0.5rem;
+    transition: opacity 0.3s ease, border-color 0.2s ease;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.changelog-card:hover {
+    border-color: var(--brand-color);
 }
 
 .changelog-card.is-zero {
@@ -70,39 +84,16 @@
 }
 
 .changelog-card-count {
-    font-size: 2.8rem;
+    font-size: 1.6rem;
     font-weight: 800;
     line-height: 1;
     color: var(--brand-color);
 }
 
 .changelog-card-name {
-    margin-top: 0.5rem;
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--secondary-text-color);
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    white-space: nowrap;
-}
-
-@media (max-width: 767px) {
-    .changelog-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-
-    .changelog-cards {
-        gap: 1rem;
-    }
-
-    .changelog-card {
-        min-width: 80px;
-        padding: 1.2rem 1.5rem;
-    }
-
-    .changelog-card-count {
-        font-size: 2.2rem;
-    }
 }

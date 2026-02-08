@@ -7,15 +7,17 @@
             <div class="changelog-period">
                 <button class="changelog-period-btn" data-days="30">30d</button>
                 <button class="changelog-period-btn" data-days="60">60d</button>
-                <button class="changelog-period-btn active" data-days="90">90d</button>
+                <button class="changelog-period-btn" data-days="90">90d</button>
+                <button class="changelog-period-btn active" data-days="all">All</button>
+                <span class="changelog-range"></span>
             </div>
         </div>
         <div class="changelog-cards">
             {{#foreach publicTags}}
-            <div class="changelog-card" data-tag="{{slug}}">
+            <a class="changelog-card" href="{{url}}" data-tag="{{slug}}">
                 <span class="changelog-card-count">-</span>
                 <span class="changelog-card-name">{{name}}</span>
-            </div>
+            </a>
             {{/foreach}}
         </div>
         {{#get "posts" limit="all" include="tags" as |allPosts|}}
