@@ -1,8 +1,8 @@
-.changelog-wrapper {
+.tag-summary-wrapper {
     margin-top: 60px;
 }
 
-.changelog-header {
+.tag-summary-header {
     display: flex;
     align-items: baseline;
     gap: 1.5rem;
@@ -11,7 +11,7 @@
     border-bottom: 1px solid var(--light-gray-color);
 }
 
-.changelog-title {
+.tag-summary-title {
     font-size: 1.5rem;
     font-weight: 800;
     text-transform: uppercase;
@@ -19,21 +19,21 @@
     margin: 0;
 }
 
-.changelog-range {
+.tag-summary-range {
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--secondary-text-color);
     letter-spacing: 0.02em;
 }
 
-.changelog-period {
+.tag-summary-period {
     display: flex;
     align-items: baseline;
     gap: 0.5rem;
     margin-left: auto;
 }
 
-.changelog-period-btn {
+.tag-summary-period-btn {
     padding: 0.2rem 0.8rem;
     border: 1px solid var(--light-gray-color);
     border-radius: 2rem;
@@ -46,24 +46,24 @@
     transition: all 0.2s ease;
 }
 
-.changelog-period-btn:hover {
+.tag-summary-period-btn:hover {
     border-color: var(--brand-color);
     color: var(--brand-color);
 }
 
-.changelog-period-btn.active {
+.tag-summary-period-btn.active {
     background-color: var(--brand-color);
     border-color: var(--brand-color);
     color: var(--white-color);
 }
 
-.changelog-cards {
+.tag-summary-cards {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
 
-.changelog-card {
+.tag-summary-card {
     display: flex;
     align-items: baseline;
     gap: 0.6rem;
@@ -75,35 +75,35 @@
     text-decoration: none;
 }
 
-.changelog-card:hover {
+.tag-summary-card:hover {
     border-color: var(--brand-color);
 }
 
-.changelog-card-important {
+.tag-summary-card-important {
     border-color: var(--orange-color);
 }
 
-.changelog-card-important .changelog-card-count {
+.tag-summary-card-important .tag-summary-card-count {
     color: var(--orange-color);
 }
 
-.changelog-card-important:hover {
+.tag-summary-card-important:hover {
     border-color: var(--orange-color);
     opacity: 0.8;
 }
 
-.changelog-card.is-zero {
+.tag-summary-card.is-zero {
     opacity: 0.3;
 }
 
-.changelog-card-count {
+.tag-summary-card-count {
     font-size: 1.6rem;
     font-weight: 800;
     line-height: 1;
     color: var(--brand-color);
 }
 
-.changelog-card-name {
+.tag-summary-card-name {
     font-size: 1.2rem;
     font-weight: 700;
     color: var(--secondary-text-color);

@@ -3,7 +3,7 @@ $(function () {
     featured();
     pagination(false);
     themeToggle();
-    changelog();
+    tagSummary();
 });
 
 function themeToggle() {
@@ -46,12 +46,12 @@ function themeToggle() {
     });
 }
 
-function changelog() {
+function tagSummary() {
     'use strict';
-    var wrapper = document.querySelector('.changelog-wrapper');
+    var wrapper = document.querySelector('.tag-summary-wrapper');
     if (!wrapper) return;
 
-    var dataEl = wrapper.querySelector('.changelog-data');
+    var dataEl = wrapper.querySelector('.tag-summary-data');
     if (!dataEl) return;
 
     var posts;
@@ -61,9 +61,9 @@ function changelog() {
         return;
     }
 
-    var cards = wrapper.querySelectorAll('.changelog-card');
-    var buttons = wrapper.querySelectorAll('.changelog-period-btn');
-    var rangeEl = wrapper.querySelector('.changelog-range');
+    var cards = wrapper.querySelectorAll('.tag-summary-card');
+    var buttons = wrapper.querySelectorAll('.tag-summary-period-btn');
+    var rangeEl = wrapper.querySelector('.tag-summary-range');
     var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
 
     function formatDate(d) {
@@ -106,7 +106,7 @@ function changelog() {
         cards.forEach(function (card) {
             var tag = card.getAttribute('data-tag');
             var count = counts[tag] || 0;
-            card.querySelector('.changelog-card-count').textContent = count;
+            card.querySelector('.tag-summary-card-count').textContent = count;
             card.classList.toggle('is-zero', count === 0);
         });
     }

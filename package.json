@@ -78,9 +78,14 @@
             "white_logo_for_dark_mode": {
                 "type": "image"
             },
-            "show_changelog": {
+            "show_tag_summary": {
                 "type": "boolean",
                 "default": true,
+                "group": "homepage"
+            },
+            "tag_summary_title": {
+                "type": "text",
+                "default": "Tag Summary",
                 "group": "homepage"
             },
             "show_featured_posts": {

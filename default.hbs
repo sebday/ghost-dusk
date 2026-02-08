@@ -107,8 +107,8 @@
     </header>
 
     {{#is "home"}}
-        {{#if @custom.show_changelog}}
-            {{> "changelog"}}
+        {{#if @custom.show_tag_summary}}
+            {{> "tag-summary"}}
         {{/if}}
         {{#if @custom.show_featured_posts}}
             {{> "featured-posts"}}
