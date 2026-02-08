@@ -71,6 +71,10 @@
                 "type": "color",
                 "default": "#1e1e2e"
             },
+            "background_color_light": {
+                "type": "color",
+                "default": "#ffffff"
+            },
             "white_logo_for_dark_mode": {
                 "type": "image"
             },

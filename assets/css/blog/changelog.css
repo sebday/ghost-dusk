@@ -19,18 +19,18 @@
     margin: 0;
 }
 
-.changelog-period {
-    display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
-}
-
 .changelog-range {
-    margin-left: 0.5rem;
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--secondary-text-color);
     letter-spacing: 0.02em;
+}
+
+.changelog-period {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-left: auto;
 }
 
 .changelog-period-btn {

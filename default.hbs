@@ -27,6 +27,18 @@
         }
     </style>
     {{/if}}
+    {{#if @custom.background_color_light}}
+    <style>
+        :root {
+            --white-color: {{@custom.background_color_light}};
+            --color-white: {{@custom.background_color_light}};
+        }
+        .theme-light:root {
+            --white-color: {{@custom.background_color_light}};
+            --color-white: {{@custom.background_color_light}};
+        }
+    </style>
+    {{/if}}
 
     {{ghost_head}}
 </head>
