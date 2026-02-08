@@ -84,6 +84,11 @@
                 "default": true,
                 "group": "homepage"
             },
+            "show_featured_images": {
+                "type": "boolean",
+                "default": true,
+                "group": "homepage"
+            },
             "featured_title": {
                 "type": "text",
                 "default": "Featured articles",

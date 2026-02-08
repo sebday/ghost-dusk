@@ -10,6 +10,7 @@
         <div class="featured-feed owl">
         {{#foreach featured}}
             <article class="{{post_class}}">
+                {{#if @custom.show_featured_images}}
                 <div class="u-placeholder horizontal">
                     {{#if feature_image}}
                         <img
@@ -21,6 +22,7 @@
                         >
                     {{/if}}
                 </div>
+                {{/if}}
                 <h3 class="post-title">{{title}}</h3>
                 <div class="feed-calendar">
                     <div class="feed-calendar-month">{{date format="MMM"}}</div>
