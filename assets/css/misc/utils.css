@@ -39,3 +39,27 @@
     height: 100%;
     object-fit: cover;
 }
+
+.kg-file-card.has-pdf-preview .kg-file-card-container {
+    display: none;
+}
+
+.pdf-preview-wrapper {
+    width: 100%;
+    border: 1px solid var(--light-gray-color);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.pdf-preview-iframe {
+    width: 100%;
+    height: 700px;
+    border: 0;
+    display: block;
+}
+
+@media (max-width: 767px) {
+    .pdf-preview-iframe {
+        height: 400px;
+    }
+}

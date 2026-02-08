@@ -4,6 +4,7 @@ $(function () {
     pagination(false);
     themeToggle();
     tagSummary();
+    pdfPreviews();
 });
 
 function themeToggle() {
@@ -121,6 +122,33 @@ function tagSummary() {
     });
 
     update('all');
+}
+
+function pdfPreviews() {
+    'use strict';
+    var fileCards = document.querySelectorAll('.kg-file-card');
+    if (!fileCards.length) return;
+
+    fileCards.forEach(function (card) {
+        var link = card.querySelector('.kg-file-card-container');
+        if (!link) return;
+
+        var href = link.getAttribute('href');
+        if (!href || !href.toLowerCase().endsWith('.pdf')) return;
+
+        var title = card.querySelector('.kg-file-card-title');
+        var titleText = title ? title.textContent : 'PDF Document';
+
+        var preview = document.createElement('div');
+        preview.className = 'pdf-preview-wrapper';
+        preview.innerHTML = '<iframe src="' + href + '" class="pdf-preview-iframe" title="' + titleText + '"></iframe>';
+
+        card.classList.add('has-pdf-preview');
+        if (!card.classList.contains('kg-width-wide') && !card.classList.contains('kg-width-full')) {
+            card.classList.add('kg-width-wide');
+        }
+        card.appendChild(preview);
+    });
 }
 
 function featured() {
