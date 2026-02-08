@@ -83,11 +83,6 @@
                 "default": true,
                 "group": "homepage"
             },
-            "tag_summary_title": {
-                "type": "text",
-                "default": "Tag Summary",
-                "group": "homepage"
-            },
             "show_featured_posts": {
                 "type": "boolean",
                 "default": true,
