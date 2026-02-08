@@ -49,10 +49,7 @@ function themeToggle() {
 
 function tagSummary() {
     'use strict';
-    var wrapper = document.querySelector('.tag-summary-wrapper');
-    if (!wrapper) return;
-
-    var dataEl = wrapper.querySelector('.tag-summary-data');
+    var dataEl = document.querySelector('.tag-summary-data');
     if (!dataEl) return;
 
     var posts;
@@ -62,66 +59,22 @@ function tagSummary() {
         return;
     }
 
-    var cards = wrapper.querySelectorAll('.tag-summary-card');
-    var buttons = wrapper.querySelectorAll('.tag-summary-period-btn');
-    var rangeEl = wrapper.querySelector('.tag-summary-range');
-    var months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+    var navCounts = document.querySelectorAll('[data-tag-nav]');
 
-    function formatDate(d) {
-        var dd = d.getDate();
-        return months[d.getMonth()] + ' ' + (dd < 10 ? '0' : '') + dd;
-    }
-
-    function update(days) {
-        var now = new Date();
-        var isAll = days === 'all';
-        var cutoffStr = '';
-
-        if (!isAll) {
-            var cutoff = new Date();
-            cutoff.setDate(cutoff.getDate() - days);
-            cutoffStr = cutoff.toISOString().split('T')[0];
-        }
-
-        if (rangeEl) {
-            if (isAll && posts.length) {
-                var dates = posts.map(function (p) { return p.d; }).sort();
-                var earliest = new Date(dates[0]);
-                rangeEl.textContent = formatDate(earliest) + ' – ' + formatDate(now);
-            } else if (!isAll) {
-                rangeEl.textContent = formatDate(cutoff) + ' – ' + formatDate(now);
-            } else {
-                rangeEl.textContent = '';
-            }
-        }
-
-        var counts = {};
-        posts.forEach(function (post) {
-            if (isAll || post.d >= cutoffStr) {
-                post.t.forEach(function (tag) {
-                    counts[tag] = (counts[tag] || 0) + 1;
-                });
-            }
-        });
-
-        cards.forEach(function (card) {
-            var tag = card.getAttribute('data-tag');
-            var count = counts[tag] || 0;
-            card.querySelector('.tag-summary-card-count').textContent = count;
-            card.classList.toggle('is-zero', count === 0);
-        });
-    }
-
-    buttons.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            buttons.forEach(function (b) { b.classList.remove('active'); });
-            btn.classList.add('active');
-            var val = btn.getAttribute('data-days');
-            update(val === 'all' ? 'all' : parseInt(val, 10));
+    var counts = {};
+    posts.forEach(function (post) {
+        post.t.forEach(function (tag) {
+            counts[tag] = (counts[tag] || 0) + 1;
         });
     });
 
-    update('all');
+    navCounts.forEach(function (link) {
+        var tag = link.getAttribute('data-tag-nav');
+        var count = counts[tag] || 0;
+        var countEl = link.querySelector('.tag-summary-nav-count');
+        if (countEl) countEl.textContent = count;
+        if (count === 0) link.closest('.tag-summary-nav-item').classList.add('is-zero');
+    });
 }
 
 function pdfPreviews() {

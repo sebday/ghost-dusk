@@ -66,7 +66,28 @@
             </div>
 
             <nav class="gh-head-menu">
-                {{navigation}}
+                {{#if @custom.show_tag_summary}}
+                    <ul class="nav tag-summary-nav">
+                        {{#get "tags" filter="visibility:public" limit="all" order="name asc" as |publicTags|}}
+                            {{#foreach publicTags}}
+                                {{#has slug="important"}}
+                                    <li class="nav-item tag-summary-nav-item tag-summary-nav-important">
+                                        <a href="{{url}}" data-tag-nav="{{slug}}">{{name}} <span class="tag-summary-nav-count">-</span></a>
+                                    </li>
+                                {{/has}}
+                            {{/foreach}}
+                            {{#foreach publicTags}}
+                                {{#has slug="important"}}{{else}}
+                                    <li class="nav-item tag-summary-nav-item">
+                                        <a href="{{url}}" data-tag-nav="{{slug}}">{{name}} <span class="tag-summary-nav-count">-</span></a>
+                                    </li>
+                                {{/has}}
+                            {{/foreach}}
+                        {{/get}}
+                    </ul>
+                {{else}}
+                    {{navigation}}
+                {{/if}}
                 {{#unless @site.members_enabled}}
                     {{#match @custom.navigation_layout "Stacked"}}
                         <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
