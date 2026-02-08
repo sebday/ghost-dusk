@@ -22,7 +22,10 @@
                     {{/if}}
                 </div>
                 <h3 class="post-title">{{title}}</h3>
-                <p class="post-date">{{date format="DD MMMM YYYY"}}</p>
+                <div class="feed-calendar">
+                    <div class="feed-calendar-month">{{date format="MMM"}}</div>
+                    <div class="feed-calendar-day">{{date format="DD"}}</div>
+                </div>
                 <a class="u-permalink" href={{url}} aria-label="{{title}}"></a>
             </article>
         {{/foreach}}
